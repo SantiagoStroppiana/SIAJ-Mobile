@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Login strings -->
-    <string name="app_name">Inventory Manager</string>
-    <string name="inventory_manager">Inventory Manager</string>
-    <string name="sign_in_subtitle">Sign in to your account</string>
+    <string name="app_name">SIAJ-Invenatarios</string>
+    <string name="inventory_manager">Gestor de Inventarios</string>
+    <string name="sign_in_subtitle">Inicia sesion en tu cuenta</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="enter_email">Enter your email</string>
-    <string name="enter_password">Enter your password</string>
-    <string name="sign_in">Sign In</string>
-    <string name="logo_description">Inventory Manager Logo</string>
+    <string name="enter_email">Ingresa tu email</string>
+    <string name="enter_password">Ingresa tu password</string>
+    <string name="sign_in">Iniciar Sesion</string>
+    <string name="logo_description">Logo</string>
 
     <!-- Inventory strings -->
-    <string name="inventory">Inventory</string>
-    <string name="search_items">Search items…</string>
-    <string name="add_symbol">+</string>
-    <string name="view">View</string>
-    <string name="edit">Edit</string>
+    <string name="inventory">Inventario/Productos</string>
+    <string name="search_items">Buscar productos…</string>
+<!--    <string name="add_symbol">+</string>-->
+<!--    <string name="view">View</string>-->
+<!--    <string name="edit">Edit</string>-->
 
     <!-- Status strings -->
     <string name="in_stock">in stock</string>
@@ -25,7 +25,7 @@
 
     <!-- Product info format -->
     <string name="sku_format">SKU: %s</string>
-    <string name="supplier_format">Supplier: %s</string>
+    <string name="supplier_format">Proveedor: %s</string>
     <string name="stock_format">Stock: %d</string>
     <string name="price_format">$%.2f</string>
 </resources>
