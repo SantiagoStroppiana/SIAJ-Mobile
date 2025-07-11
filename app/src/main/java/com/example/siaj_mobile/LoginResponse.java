@@ -1,6 +1,6 @@
 package com.example.siaj_mobile;
 
-import org.example.desktop.dto.UsuarioDTO;
+import com.example.siaj_mobile.UsuarioDTO;
 
 public class LoginResponse {
 

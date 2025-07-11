@@ -3,6 +3,8 @@
     <!-- Background colors -->
     <color name="inventory_background">#1A1A1A</color>
     <color name="card_background">#2C3E50</color>
+    <color name="icon_background">#27AE60</color>
+    <color name="icon_tint">#FFFFFF</color>
 
     <!-- Text colors -->
     <color name="text_primary">#FFFFFF</color>
@@ -15,6 +17,12 @@
     <color name="button_primary_pressed">#229954</color>
     <color name="button_secondary">#34495E</color>
     <color name="button_secondary_pressed">#2C3E50</color>
+    <color name="button_background">#27AE60</color>
+    <color name="button_background_pressed">#229954</color>
+    <color name="background_dark">#F5F5F5</color>
+    <color name="input_background">#34495E</color>
+    <color name="input_border">#4A5F7A</color>
+    <color name="input_border_focused">#27AE60</color>
 
     <!-- Status colors -->
     <color name="status_in_stock">#27AE60</color>

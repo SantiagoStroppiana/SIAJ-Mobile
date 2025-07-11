@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         loginButton.setEnabled(false);
-        loginButton.setText("Iniciando sesi贸n...");
+        loginButton.setText("Iniciando sesión...");
 
         Usuario usuario = new Usuario();
         usuario.setEmail(email);
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 mainHandler.post(() -> {
                     loginButton.setEnabled(true);
                     loginButton.setText("Iniciar Sesi贸n");
-                    notificar("Error Cr铆tico", "Error de conexi贸n: " + e.getMessage(), false);
+                    notificar("Error Crítico", "Error de conexi贸n: " + e.getMessage(), false);
                 });
             }
 
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
                 mainHandler.post(() -> {
                     loginButton.setEnabled(true);
-                    loginButton.setText("Iniciar Sesi贸n");
+                    loginButton.setText("Iniciar Sesión");
 
                     try {
                         if (responseBody.trim().startsWith("{")) {
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                             if (resultado != null && resultado.isSuccess()) {
                                 UsuarioDTO usuarioLogueado = resultado.getUsuario();
 
-                                notificar("Inicio de sesi贸n exitoso", resultado.getMessage(), true);
+                                notificar("Inicio de sesión exitoso", resultado.getMessage(), true);
                                 goToDashboard();
 
                             } else {
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void goToDashboard() {
-        Intent i = new Intent(MainActivity.this, ProductAdapter.class);
+        Intent i = new Intent(MainActivity.this, InventoryActivity.class);
         startActivity(i);
         finish();
     }

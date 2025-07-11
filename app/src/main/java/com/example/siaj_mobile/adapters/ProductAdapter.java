@@ -73,8 +73,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             supplierText = itemView.findViewById(R.id.supplierText);
             stockText = itemView.findViewById(R.id.stockText);
             priceText = itemView.findViewById(R.id.priceText);
-            viewButton = itemView.findViewById(R.id.viewButton);
-            editButton = itemView.findViewById(R.id.editButton);
+//            viewButton = itemView.findViewById(R.id.viewButton);
+//            editButton = itemView.findViewById(R.id.editButton);
         }
 
         public void bind(Producto product) {
@@ -88,17 +88,17 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             setStockStatus(product.getStock());
 
             // Set click listeners
-            viewButton.setOnClickListener(v -> {
-                if (listener != null) {
-                    listener.onViewClick(product);
-                }
-            });
-
-            editButton.setOnClickListener(v -> {
-                if (listener != null) {
-                    listener.onEditClick(product);
-                }
-            });
+//            viewButton.setOnClickListener(v -> {
+//                if (listener != null) {
+//                    listener.onViewClick(product);
+//                }
+//            });
+//
+//            editButton.setOnClickListener(v -> {
+//                if (listener != null) {
+//                    listener.onEditClick(product);
+//                }
+//            });
         }
 
         private void setStockStatus(int stock) {
