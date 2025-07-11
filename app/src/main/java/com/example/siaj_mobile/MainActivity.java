@@ -30,18 +30,6 @@ public class MainActivity extends AppCompatActivity {
     private Gson gson;
     private Handler mainHandler;
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        EdgeToEdge.enable(this);
-//        setContentView(R.layout.activity_main);
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        });
-//    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,8 +78,8 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call call, IOException e) {
                 mainHandler.post(() -> {
                     loginButton.setEnabled(true);
-                    loginButton.setText("Iniciar Sesi贸n");
-                    notificar("Error Crítico", "Error de conexi贸n: " + e.getMessage(), false);
+                    loginButton.setText("Iniciar Sesión");
+                    notificar("Error Crítico", "Error de conexión: " + e.getMessage(), false);
                 });
             }
 
@@ -114,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                                 goToDashboard();
 
                             } else {
-                                notificar("Incorrecto", resultado != null ? resultado.getMessage() : "Respuesta inv谩lida", false);
+                                notificar("Incorrecto", resultado != null ? resultado.getMessage() : "Respuesta inválida", false);
                             }
                         } else {
                             notificar("Error", responseBody, false);
@@ -129,7 +117,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void goToDashboard() {
-        Intent i = new Intent(MainActivity.this, InventoryActivity.class);
+        // ESTE ES EL ÚNICO CAMBIO - ahora va a DashboardActivity en lugar de InventoryActivity
+        Intent i = new Intent(MainActivity.this, DashboardActivity.class);
         startActivity(i);
         finish();
     }
