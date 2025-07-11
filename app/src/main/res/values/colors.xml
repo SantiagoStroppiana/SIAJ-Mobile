@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Background colors -->
+    <color name="inventory_background">#1A1A1A</color>
+    <color name="card_background">#2C3E50</color>
+
+    <!-- Text colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#BDC3C7</color>
+    <color name="text_hint">#7F8C8D</color>
+    <color name="price_color">#27AE60</color>
+
+    <!-- Button colors -->
+    <color name="button_primary">#27AE60</color>
+    <color name="button_primary_pressed">#229954</color>
+    <color name="button_secondary">#34495E</color>
+    <color name="button_secondary_pressed">#2C3E50</color>
+
+    <!-- Status colors -->
+    <color name="status_in_stock">#27AE60</color>
+    <color name="status_low_stock">#F39C12</color>
+    <color name="status_out_of_stock">#E74C3C</color>
+
+    <!-- Search input colors -->
+    <color name="search_background">#34495E</color>
+    <color name="search_border">#4A5F7A</color>
+    <color name="search_border_focused">#27AE60</color>
 </resources>
