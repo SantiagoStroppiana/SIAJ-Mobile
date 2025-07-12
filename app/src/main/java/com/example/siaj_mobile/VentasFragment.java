@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,6 +42,7 @@ public class VentasFragment extends Fragment {
     private VentaAdapter adapter;
     private List<VentaDTO> ventas = new ArrayList<>();
     private List<VentaDTO> ventasFiltradas = new ArrayList<>();
+    private TextView tvVentasHoy;
     private TextInputEditText searchEditText;
 
     private static final String BASE_URL = VariablesEntorno.getServerURL();
@@ -59,13 +61,25 @@ public class VentasFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerViewVentas);
         searchEditText = view.findViewById(R.id.searchEditTextVentas);
-
+        tvVentasHoy = view.findViewById(R.id.tvVentasHoy);
         setupRecyclerView();
         setupSearch();
         loadVentas();
         cargarProductosEnCache();
         cargarDetallesEnCache();
+
+
         return view;
+    }
+
+    private void TotalVentasHoy() {
+        double totalVentas=0;
+        for (VentaDTO venta : ventas) {
+            totalVentas=totalVentas+venta.getTotal().doubleValue();
+        }
+        String textoTotal=String.format("%.2f",totalVentas);
+        //return textoTotal;
+        tvVentasHoy.setText(textoTotal);
     }
 
     private void setupRecyclerView() {
@@ -98,6 +112,7 @@ public class VentasFragment extends Fragment {
             }
         }
         adapter.notifyDataSetChanged();
+        TotalVentasHoy();
     }
 
     private void cargarDetallesEnCache() {
@@ -174,15 +189,24 @@ public class VentasFragment extends Fragment {
     }
 
     private void mostrarDialogoDetalles(int ventaId) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext(), R.style.CustomAlertDialog);
         builder.setTitle("Detalles de Venta #" + ventaId);
 
         final TextView textView = new TextView(getContext());
         textView.setPadding(32, 24, 32, 24);
-        builder.setView(textView);
+        textView.setTextColor(ContextCompat.getColor(getContext(), R.color.text_primary));
+        textView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.card_background));
+        textView.setTextSize(14);
+        textView.setLineSpacing(8, 1.2f);
 
+        builder.setView(textView);
         builder.setPositiveButton("Cerrar", null);
+
         AlertDialog dialog = builder.create();
+
+        // Esto evita que se sobrescriba el fondo por defecto blanco
+        dialog.getWindow().setBackgroundDrawableResource(R.color.card_background);
+
         dialog.show();
 
         // Obtener detalles filtrados por ventaId
@@ -214,6 +238,7 @@ public class VentasFragment extends Fragment {
         textView.setText(sb.toString());
     }
 
+
     private void loadVentas() {
         Request request = new Request.Builder()
                 .url(BASE_URL + "/api/ventas")
@@ -238,6 +263,7 @@ public class VentasFragment extends Fragment {
                             ventas.clear();
                             ventas.addAll(lista);
                             filterVentas("");
+                            TotalVentasHoy();
                         });
                     } catch (Exception e) {
                         Log.e(TAG, "Error parseando ventas", e);
