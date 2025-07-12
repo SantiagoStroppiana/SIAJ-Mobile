@@ -38,6 +38,7 @@ public class ProveedorAdapter extends RecyclerView.Adapter<ProveedorAdapter.Prov
         Proveedor proveedor = proveedorList.get(position);
         holder.nombreTextView.setText(proveedor.getRazonSocial());
         holder.emailTextView.setText(proveedor.getEmail());
+        holder.telefonoTextView.setText(proveedor.getTelefono());
 
 //        holder.btnVer.setOnClickListener(v -> {
 //            if (clickListener != null) {
@@ -67,7 +68,7 @@ public class ProveedorAdapter extends RecyclerView.Adapter<ProveedorAdapter.Prov
     }
 
     public static class ProveedorViewHolder extends RecyclerView.ViewHolder {
-        TextView nombreTextView, emailTextView;
+        TextView nombreTextView, emailTextView, telefonoTextView;
         ImageButton btnVer, btnEditar;
 
         public ProveedorViewHolder(@NonNull View itemView) {
@@ -76,6 +77,8 @@ public class ProveedorAdapter extends RecyclerView.Adapter<ProveedorAdapter.Prov
             emailTextView = itemView.findViewById(R.id.proveedorEmail);
 //            btnVer = itemView.findViewById(R.id.btnVerProveedor);
 //            btnEditar = itemView.findViewById(R.id.btnEditarProveedor);
+            telefonoTextView = itemView.findViewById(R.id.proveedorTelefono);
+
         }
     }
 }
