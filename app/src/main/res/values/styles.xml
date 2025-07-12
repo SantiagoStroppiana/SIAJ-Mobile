@@ -1,67 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Add Button Style -->
-    <style name="AddButton" parent="Widget.MaterialComponents.Button">
-        <item name="android:background">@drawable/add_button_background</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="cornerRadius">24dp</item>
-    </style>
-
-    <!-- Secondary Button Style -->
-    <style name="SecondaryButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="android:background">@drawable/secondary_button_background</item>
-        <item name="android:textColor">@color/text_secondary</item>
-        <item name="android:textSize">14sp</item>
-        <item name="strokeColor">@color/button_secondary</item>
-        <item name="strokeWidth">1dp</item>
-        <item name="cornerRadius">8dp</item>
-    </style>
-
-    <!-- Search Input Style -->
-    <style name="SearchInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:textColorHint">@color/text_hint</item>
-        <item name="boxStrokeColor">@color/search_border_focused</item>
-        <item name="boxStrokeWidth">1dp</item>
-        <item name="boxCornerRadiusTopStart">8dp</item>
-        <item name="boxCornerRadiusTopEnd">8dp</item>
-        <item name="boxCornerRadiusBottomStart">8dp</item>
-        <item name="boxCornerRadiusBottomEnd">8dp</item>
-        <item name="boxBackgroundColor">@color/search_background</item>
-        <item name="hintTextColor">@color/text_hint</item>
-    </style>
-    <!-- Custom Button Style -->
+    <!-- Primary Button Style - Diseño moderno con gradiente -->
     <style name="CustomButton" parent="Widget.MaterialComponents.Button">
         <item name="android:background">@drawable/button_background</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:elevation">2dp</item>
+        <item name="android:elevation">4dp</item>
         <item name="android:stateListAnimator">@null</item>
-        <item name="cornerRadius">8dp</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:minHeight">48dp</item>
     </style>
 
-    <!-- Custom TextInputLayout Style -->
+    <!-- Secondary Button Style - Outlined moderno -->
+    <style name="SecondaryButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:background">@drawable/secondary_button_background</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="strokeColor">@color/button_secondary</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="rippleColor">@color/ripple_secondary</item>
+    </style>
+
+    <!-- Tertiary Button Style - Texto plano -->
+    <style name="TertiaryButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/accent_primary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="rippleColor">@color/ripple_primary</item>
+    </style>
+
+    <!-- Add Button Style - FAB moderno -->
+    <style name="AddButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">@drawable/add_button_background</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:elevation">6dp</item>
+        <item name="cornerRadius">28dp</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:minWidth">56dp</item>
+    </style>
+
+    <!-- Custom TextInputLayout Style - Diseño limpio -->
     <style name="CustomTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:textColorHint">@color/text_hint</item>
         <item name="boxStrokeColor">@color/input_border_focused</item>
+<!--        <item name="boxStrokeColorStateList">@color/input_border_state_list</item>-->
         <item name="boxStrokeWidth">1dp</item>
-        <item name="boxCornerRadiusTopStart">8dp</item>
-        <item name="boxCornerRadiusTopEnd">8dp</item>
-        <item name="boxCornerRadiusBottomStart">8dp</item>
-        <item name="boxCornerRadiusBottomEnd">8dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
         <item name="boxBackgroundColor">@color/input_background</item>
         <item name="hintTextColor">@color/text_hint</item>
+        <item name="helperTextTextColor">@color/text_tertiary</item>
+        <item name="errorTextColor">@color/status_error</item>
+        <item name="cursorColor">@color/accent_primary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
     </style>
 
-    <!-- Custom EditText Style -->
+        <style name="BottomNavigationActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+            <item name="android:color">@color/bottom_nav_indicator</item>
+        </style>
+
+
+    <!-- Custom EditText Style - Tipografía mejorada -->
     <style name="CustomEditText" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textColorHint">@color/text_hint</item>
         <item name="android:textSize">16sp</item>
         <item name="android:padding">16dp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <!-- Search Input Style - Buscador moderno -->
+    <style name="SearchInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColorHint">@color/text_hint</item>
+        <item name="boxStrokeColor">@color/search_border_focused</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxCornerRadiusTopStart">20dp</item>
+        <item name="boxCornerRadiusTopEnd">20dp</item>
+        <item name="boxCornerRadiusBottomStart">20dp</item>
+        <item name="boxCornerRadiusBottomEnd">20dp</item>
+        <item name="boxBackgroundColor">@color/search_background</item>
+        <item name="hintTextColor">@color/text_hint</item>
+        <item name="startIconTint">@color/icon_secondary</item>
+        <item name="endIconTint">@color/icon_secondary</item>
+    </style>
+
+    <!-- Card Style - Elevación moderna -->
+    <style name="ModernCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="cardMaxElevation">12dp</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="rippleColor">@color/ripple_secondary</item>
+    </style>
+
+    <!-- Card Style Elevated - Para elementos importantes -->
+    <style name="ElevatedCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/card_background_elevated</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">12dp</item>
+        <item name="cardMaxElevation">16dp</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="rippleColor">@color/ripple_secondary</item>
+    </style>
+
+    <!-- Title Text Style -->
+    <style name="TitleText">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+
+    <!-- Subtitle Text Style -->
+    <style name="SubtitleText">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <!-- Label Text Style -->
+    <style name="LabelText">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!-- Body Text Style -->
+    <style name="BodyText">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <!-- Caption Text Style -->
+    <style name="CaptionText">
+        <item name="android:textColor">@color/text_tertiary</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.03</item>
     </style>
 
 </resources>

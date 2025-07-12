@@ -1,36 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Background colors -->
-    <color name="inventory_background">#1A1A1A</color>
-    <color name="card_background">#2C3E50</color>
-    <color name="icon_background">#27AE60</color>
+    <!-- Background colors - Dark theme modernizado -->
+    <color name="inventory_background">#0F0F0F</color>
+    <color name="card_background">#1C1C1E</color>
+    <color name="card_background_elevated">#2C2C2E</color>
+    <color name="background_dark">#000000</color>
+
+    <!-- Surface colors -->
+    <color name="surface_primary">#1C1C1E</color>
+    <color name="surface_secondary">#2C2C2E</color>
+    <color name="surface_tertiary">#3A3A3C</color>
+
+    <!-- Accent colors - Gradientes modernos -->
+    <color name="accent_primary">#068C32</color>
+    <color name="accent_secondary">#0CA823</color>
+    <color name="accent_gradient_start">#068C32</color>
+    <color name="accent_gradient_end">#0CA823</color>
+
+    <!-- Icon colors -->
+    <color name="icon_background">#068C32</color>
     <color name="icon_tint">#FFFFFF</color>
+    <color name="icon_secondary">#8E8E93</color>
 
-    <!-- Text colors -->
+    <!-- Text colors - Mejorado contraste -->
     <color name="text_primary">#FFFFFF</color>
-    <color name="text_secondary">#BDC3C7</color>
-    <color name="text_hint">#7F8C8D</color>
-    <color name="price_color">#27AE60</color>
+    <color name="text_secondary">#8E8E93</color>
+    <color name="text_tertiary">#636366</color>
+    <color name="text_hint">#48484A</color>
+    <color name="text_disabled">#3A3A3C</color>
 
-    <!-- Button colors -->
-    <color name="button_primary">#27AE60</color>
-    <color name="button_primary_pressed">#229954</color>
-    <color name="button_secondary">#34495E</color>
-    <color name="button_secondary_pressed">#2C3E50</color>
-    <color name="button_background">#27AE60</color>
-    <color name="button_background_pressed">#229954</color>
-    <color name="background_dark">#F5F5F5</color>
-    <color name="input_background">#34495E</color>
-    <color name="input_border">#4A5F7A</color>
-    <color name="input_border_focused">#27AE60</color>
+    <!-- Button colors - Sistema moderno -->
+    <color name="button_primary">#068C32</color>
+    <color name="button_primary_pressed">#1D7122</color>
+    <color name="button_secondary">#2C2C2E</color>
+    <color name="button_secondary_pressed">#1C1C1E</color>
+    <color name="button_background">#068C32</color>
+    <color name="button_background_pressed">#1D7122</color>
+    <color name="button_tertiary">#3A3A3C</color>
+    <color name="button_tertiary_pressed">#2C2C2E</color>
 
-    <!-- Status colors -->
-    <color name="status_in_stock">#27AE60</color>
-    <color name="status_low_stock">#F39C12</color>
-    <color name="status_out_of_stock">#E74C3C</color>
+    <!-- Input colors - Diseño limpio -->
+    <color name="input_background">#1C1C1E</color>
+    <color name="input_background_focused">#2C2C2E</color>
+    <color name="input_border">#3A3A3C</color>
+    <color name="input_border_focused">#068C32</color>
+    <color name="input_border_error">#FF3B30</color>
 
-    <!-- Search input colors -->
-    <color name="search_background">#34495E</color>
-    <color name="search_border">#4A5F7A</color>
-    <color name="search_border_focused">#27AE60</color>
+    <!-- Status colors - Sistema semántico -->
+    <color name="status_success">#30D158</color>
+    <color name="status_warning">#FF9500</color>
+    <color name="status_error">#FF3B30</color>
+    <color name="status_info">#007AFF</color>
+
+    <!-- Inventory specific -->
+    <color name="status_in_stock">#30D158</color>
+    <color name="status_low_stock">#FF9500</color>
+    <color name="status_out_of_stock">#FF3B30</color>
+    <color name="price_color">#30D158</color>
+
+    <!-- Search colors -->
+    <color name="search_background">#1C1C1E</color>
+    <color name="search_border">#3A3A3C</color>
+    <color name="search_border_focused">#068C32</color>
+
+    <!-- Shadow and elevation -->
+    <color name="shadow_light">#33000000</color>
+    <color name="shadow_medium">#66000000</color>
+    <color name="shadow_dark">#99000000</color>
+
+    <!-- Divider colors -->
+    <color name="divider_primary">#2C2C2E</color>
+    <color name="divider_secondary">#1C1C1E</color>
+
+    <!-- Overlay colors -->
+    <color name="overlay_light">#1A000000</color>
+    <color name="overlay_medium">#4D000000</color>
+    <color name="overlay_dark">#80000000</color>
+
+    <!-- Ripple effects -->
+    <color name="ripple_primary">#33007AFF</color>
+    <color name="ripple_secondary">#332C2C2E</color>
+    <color name="ripple_light">#1AFFFFFF</color>
+
+    <!-- Bottom Navigation colors -->
+    <color name="bottom_nav_selected">#068C32</color>
+    <color name="bottom_nav_unselected">#8E8E93</color>
+    <color name="bottom_nav_background">#1C1C1E</color>
+    <color name="bottom_nav_indicator">#33068C32</color>
 </resources>
