@@ -139,7 +139,6 @@
 
     </LinearLayout>
 
-    <!-- RecyclerView con padding para cards -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewVentas"
         android:layout_width="match_parent"

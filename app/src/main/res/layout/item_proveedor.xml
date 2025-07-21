@@ -75,7 +75,6 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:src="@drawable/ic_email"
-                    android:tint="@color/icon_secondary"
                     android:layout_marginEnd="6dp" />
 
                 <TextView
@@ -103,7 +102,7 @@
                     android:layout_height="16dp"
                     android:layout_marginEnd="6dp"
                     android:src="@drawable/ic_phone"
-                    android:tint="@color/icon_secondary" />
+                  />
 
                 <TextView
                     android:id="@+id/proveedorTelefono"
@@ -116,19 +115,13 @@
                     android:text="+1 234 567 8900"
                     android:textSize="12sp" />
 
-                <View
-                    android:id="@+id/proveedorEstado"
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"
-                    android:layout_marginStart="12dp"
-                    android:background="@drawable/status_indicator"
-                    android:backgroundTint="@color/status_success" />
+
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <!-- Botones de acción -->
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -137,37 +130,20 @@
             android:layout_marginStart="8dp">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnVerProveedor"
+                android:id="@+id/btnLlamarProveedor"
                 style="@style/TertiaryButton"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="69dp"
                 android:insetLeft="0dp"
                 android:insetTop="0dp"
                 android:insetRight="0dp"
                 android:insetBottom="0dp"
-                app:icon="@drawable/ic_visibility"
-                app:iconGravity="textStart"
-                app:iconPadding="0dp"
-                app:iconSize="20dp"
-                app:iconTint="@color/icon_secondary"
                 app:cornerRadius="12dp"
-                android:layout_marginEnd="8dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnEditarProveedor"
-                style="@style/TertiaryButton"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:insetLeft="0dp"
-                android:insetTop="0dp"
-                android:insetRight="0dp"
-                android:insetBottom="0dp"
-                app:icon="@drawable/ic_edit"
+                app:icon="@drawable/ic_phone"
                 app:iconGravity="textStart"
                 app:iconPadding="0dp"
                 app:iconSize="20dp"
-                app:iconTint="@color/accent_primary"
-                app:cornerRadius="12dp" />
+                app:iconTint="@color/accent_primary" />
 
         </LinearLayout>
 
