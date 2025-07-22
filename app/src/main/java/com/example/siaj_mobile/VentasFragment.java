@@ -1,15 +1,18 @@
 package com.example.siaj_mobile;
 
 import android.app.AlertDialog;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -189,31 +192,27 @@ public class VentasFragment extends Fragment {
     }
 
     private void mostrarDialogoDetalles(int ventaId) {
+        LayoutInflater inflater = LayoutInflater.from(getContext());
+        View view = inflater.inflate(R.layout.dialog_detalles_venta, null);
+
+        TextView titulo = view.findViewById(R.id.tituloVenta);
+        TextView detallesText = view.findViewById(R.id.detallesText);
+        Button btnCerrar = view.findViewById(R.id.btnCerrar);
+
+        titulo.setText("🧾 Detalles de Venta #" + ventaId);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext(), R.style.CustomAlertDialog);
-        builder.setTitle("Detalles de Venta #" + ventaId);
-
-        final TextView textView = new TextView(getContext());
-        textView.setPadding(32, 24, 32, 24);
-        textView.setTextColor(ContextCompat.getColor(getContext(), R.color.text_primary));
-        textView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.card_background));
-        textView.setTextSize(14);
-        textView.setLineSpacing(8, 1.2f);
-
-        builder.setView(textView);
-        builder.setPositiveButton("Cerrar", null);
-
+        builder.setView(view);
         AlertDialog dialog = builder.create();
-
-        // Esto evita que se sobrescriba el fondo por defecto blanco
-        dialog.getWindow().setBackgroundDrawableResource(R.color.card_background);
-
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         dialog.show();
 
-        // Obtener detalles filtrados por ventaId
-        List<DetalleVentaDTO> detallesVenta = obtenerDetallesPorVentaId(ventaId);
+        btnCerrar.setOnClickListener(v -> dialog.dismiss());
 
+        // Lógica para cargar los datos
+        List<DetalleVentaDTO> detallesVenta = obtenerDetallesPorVentaId(ventaId);
         if (detallesVenta.isEmpty()) {
-            textView.setText("No se encontraron detalles para esta venta.");
+            detallesText.setText("No se encontraron detalles para esta venta.");
             return;
         }
 
@@ -223,20 +222,23 @@ public class VentasFragment extends Fragment {
         for (DetalleVentaDTO detalle : detallesVenta) {
             Producto producto = buscarProductoPorId(detalle.getProductoId());
             String nombreProducto = producto != null ? producto.getNombre() : "Producto ID " + detalle.getProductoId();
-
             double subtotal = detalle.getCantidad() * detalle.getPrecioUnitario();
             totalVenta += subtotal;
 
             sb.append("• ").append(nombreProducto)
-                    .append("\n  Cantidad: ").append(detalle.getCantidad())
+                    .append("\n   Cantidad: ").append(detalle.getCantidad())
                     .append(" x $").append(String.format("%.2f", detalle.getPrecioUnitario()))
                     .append(" = $").append(String.format("%.2f", subtotal))
                     .append("\n\n");
         }
 
-        sb.append("TOTAL: $").append(String.format("%.2f", totalVenta));
-        textView.setText(sb.toString());
+        sb.append("💰 TOTAL: $").append(String.format("%.2f", totalVenta));
+        detallesText.setText(sb.toString());
     }
+
+
+
+
 
 
     private void loadVentas() {
