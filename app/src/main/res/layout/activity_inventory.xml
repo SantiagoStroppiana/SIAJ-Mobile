@@ -28,17 +28,8 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
-<!--        <Button-->
-<!--            android:id="@+id/addButton"-->
-<!--            style="@style/AddButton"-->
-<!--            android:layout_width="48dp"-->
-<!--            android:layout_height="48dp"-->
-<!--            android:text="@string/add_symbol"-->
-<!--            android:textSize="20sp" />-->
 
     </LinearLayout>
-
-    <!-- Search Bar -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/searchInputLayout"
         style="@style/SearchInputLayout"
@@ -64,7 +55,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- RecyclerView for Products -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/inventoryRecyclerView"
         android:layout_width="match_parent"

@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Login strings -->
-    <string name="app_name">Inventory Manager</string>
-    <string name="inventory_manager">Inventory Manager</string>
-    <string name="sign_in_subtitle">Sign in to your account</string>
+    <string name="app_name">SIAJ-Inventarios</string>
+    <string name="inventory_manager">SIAJ-Inventarios</string>
+    <string name="sign_in_subtitle">Ingrese a su cuenta</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="enter_email">Enter your email</string>
-    <string name="enter_password">Enter your password</string>
-    <string name="sign_in">Sign In</string>
-    <string name="logo_description">Inventory Manager Logo</string>
+    <string name="enter_email">Ingresa tu email</string>
+    <string name="enter_password">Ingresa tu password</string>
+    <string name="sign_in">Iniciar Sesion</string>
+    <string name="logo_description">Logo</string>
 
     <!-- Inventory strings -->
-    <string name="inventory">Inventory</string>
-    <string name="search_items">Search items…</string>
+    <string name="inventory">Inventario</string>
+    <string name="search_items">Buscars items…</string>
     <string name="add_symbol">+</string>
-    <string name="view">View</string>
+    <string name="view">Vista</string>
     <string name="edit">Edit</string>
 
     <!-- Status strings -->
-    <string name="in_stock">in stock</string>
-    <string name="low_stock">low stock</string>
-    <string name="out_of_stock">out of stock</string>
+    <string name="in_stock">en stock</string>
+    <string name="low_stock">bajo stock</string>
+    <string name="out_of_stock">sin stock</string>
 
     <!-- Product info format -->
     <string name="sku_format">SKU: %s</string>
-    <string name="supplier_format">Supplier: %s</string>
+    <string name="supplier_format">Proveedor: %s</string>
     <string name="stock_format">Stock: %d</string>
     <string name="price_format">$%.2f</string>
 </resources>

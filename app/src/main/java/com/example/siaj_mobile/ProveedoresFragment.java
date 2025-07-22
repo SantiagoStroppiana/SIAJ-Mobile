@@ -1,6 +1,8 @@
 package com.example.siaj_mobile;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -67,6 +69,9 @@ public class ProveedoresFragment extends Fragment implements ProveedorAdapter.On
 
         adapter = new ProveedorAdapter(getContext(), proveedoresFiltrados);
         adapter.setOnProveedorClickListener(this);
+        adapter.setOnPermissionRequestListener(() -> {
+            requestPermissions(new String[]{Manifest.permission.CALL_PHONE}, 1);
+        });
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
@@ -165,4 +170,17 @@ public class ProveedoresFragment extends Fragment implements ProveedorAdapter.On
     public void onEditClick(Proveedor proveedor) {
         Toast.makeText(getContext(), "Editar: " + proveedor.getRazonSocial(), Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(getContext(), "Permiso otorgado. Intenta llamar nuevamente.", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getContext(), "Permiso denegado para realizar llamadas.", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 }

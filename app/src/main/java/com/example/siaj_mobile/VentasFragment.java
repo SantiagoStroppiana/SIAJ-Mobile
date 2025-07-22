@@ -1,20 +1,24 @@
 package com.example.siaj_mobile;
 
 import android.app.AlertDialog;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,6 +45,7 @@ public class VentasFragment extends Fragment {
     private VentaAdapter adapter;
     private List<VentaDTO> ventas = new ArrayList<>();
     private List<VentaDTO> ventasFiltradas = new ArrayList<>();
+    private TextView tvVentasHoy;
     private TextInputEditText searchEditText;
 
     private static final String BASE_URL = VariablesEntorno.getServerURL();
@@ -59,13 +64,25 @@ public class VentasFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerViewVentas);
         searchEditText = view.findViewById(R.id.searchEditTextVentas);
-
+        tvVentasHoy = view.findViewById(R.id.tvVentasHoy);
         setupRecyclerView();
         setupSearch();
         loadVentas();
         cargarProductosEnCache();
         cargarDetallesEnCache();
+
+
         return view;
+    }
+
+    private void TotalVentasHoy() {
+        double totalVentas=0;
+        for (VentaDTO venta : ventas) {
+            totalVentas=totalVentas+venta.getTotal().doubleValue();
+        }
+        String textoTotal=String.format("%.2f",totalVentas);
+        //return textoTotal;
+        tvVentasHoy.setText(textoTotal);
     }
 
     private void setupRecyclerView() {
@@ -98,6 +115,7 @@ public class VentasFragment extends Fragment {
             }
         }
         adapter.notifyDataSetChanged();
+        TotalVentasHoy();
     }
 
     private void cargarDetallesEnCache() {
@@ -174,22 +192,27 @@ public class VentasFragment extends Fragment {
     }
 
     private void mostrarDialogoDetalles(int ventaId) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setTitle("Detalles de Venta #" + ventaId);
+        LayoutInflater inflater = LayoutInflater.from(getContext());
+        View view = inflater.inflate(R.layout.dialog_detalles_venta, null);
 
-        final TextView textView = new TextView(getContext());
-        textView.setPadding(32, 24, 32, 24);
-        builder.setView(textView);
+        TextView titulo = view.findViewById(R.id.tituloVenta);
+        TextView detallesText = view.findViewById(R.id.detallesText);
+        Button btnCerrar = view.findViewById(R.id.btnCerrar);
 
-        builder.setPositiveButton("Cerrar", null);
+        titulo.setText("🧾 Detalles de Venta #" + ventaId);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext(), R.style.CustomAlertDialog);
+        builder.setView(view);
         AlertDialog dialog = builder.create();
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         dialog.show();
 
-        // Obtener detalles filtrados por ventaId
-        List<DetalleVentaDTO> detallesVenta = obtenerDetallesPorVentaId(ventaId);
+        btnCerrar.setOnClickListener(v -> dialog.dismiss());
 
+        // Lógica para cargar los datos
+        List<DetalleVentaDTO> detallesVenta = obtenerDetallesPorVentaId(ventaId);
         if (detallesVenta.isEmpty()) {
-            textView.setText("No se encontraron detalles para esta venta.");
+            detallesText.setText("No se encontraron detalles para esta venta.");
             return;
         }
 
@@ -199,20 +222,24 @@ public class VentasFragment extends Fragment {
         for (DetalleVentaDTO detalle : detallesVenta) {
             Producto producto = buscarProductoPorId(detalle.getProductoId());
             String nombreProducto = producto != null ? producto.getNombre() : "Producto ID " + detalle.getProductoId();
-
             double subtotal = detalle.getCantidad() * detalle.getPrecioUnitario();
             totalVenta += subtotal;
 
             sb.append("• ").append(nombreProducto)
-                    .append("\n  Cantidad: ").append(detalle.getCantidad())
+                    .append("\n   Cantidad: ").append(detalle.getCantidad())
                     .append(" x $").append(String.format("%.2f", detalle.getPrecioUnitario()))
                     .append(" = $").append(String.format("%.2f", subtotal))
                     .append("\n\n");
         }
 
-        sb.append("TOTAL: $").append(String.format("%.2f", totalVenta));
-        textView.setText(sb.toString());
+        sb.append("💰 TOTAL: $").append(String.format("%.2f", totalVenta));
+        detallesText.setText(sb.toString());
     }
+
+
+
+
+
 
     private void loadVentas() {
         Request request = new Request.Builder()
@@ -238,6 +265,7 @@ public class VentasFragment extends Fragment {
                             ventas.clear();
                             ventas.addAll(lista);
                             filterVentas("");
+                            TotalVentasHoy();
                         });
                     } catch (Exception e) {
                         Log.e(TAG, "Error parseando ventas", e);
