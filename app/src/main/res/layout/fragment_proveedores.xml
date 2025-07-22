@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/inventory_background">
+    android:background="@color/inventory_background"
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,39 +44,6 @@
                     android:text="Gestiona tus proveedores" />
 
             </LinearLayout>
-
-            <androidx.cardview.widget.CardView
-                style="@style/ModernCard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/surface_secondary"
-                app:cardCornerRadius="12dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="12dp"
-                    android:gravity="center">
-
-                    <TextView
-                        android:id="@+id/tvProveedoresActivos"
-                        style="@style/LabelText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textColor="@color/status_success"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        style="@style/CaptionText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Activos" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
